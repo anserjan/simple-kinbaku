@@ -1,0 +1,31 @@
+{% assign day = include.date | date: "%-d" %}
+{% assign year = include.date | date: "%Y" %}
+{% assign weekday = include.date | date: "%A" %}
+{% assign month = include.date | date: "%B" %}
+
+{% assign weekday = weekday
+  | replace: "Monday", "Mo"
+  | replace: "Tuesday", "Di"
+  | replace: "Wednesday", "Mi"
+  | replace: "Thursday", "Do"
+  | replace: "Friday", "Fr"
+  | replace: "Saturday", "Sa"
+  | replace: "Sunday", "So"
+%}
+
+{% assign month = month
+  | replace: "January", "Januar"
+  | replace: "February", "Februar"
+  | replace: "March", "März"
+  | replace: "April", "April"
+  | replace: "May", "Mai"
+  | replace: "June", "Juni"
+  | replace: "July", "Juli"
+  | replace: "August", "August"
+  | replace: "September", "September"
+  | replace: "October", "Oktober"
+  | replace: "November", "November"
+  | replace: "December", "Dezember"
+%}
+
+{{ weekday }}, {{ day }}. {{ month }}
