@@ -22,10 +22,12 @@
 title: Osada Kinbaku Dojo e.V Homepage
 email: lernen [at] kinbaku-berlin.de
 description: >- # this means to ignore newlines until "baseurl:"
-  Dies ist die Webseite des Osada Kinbaku Dojo e.V. Wir bieten Shibari Workshops und Trainings an.
+  Webseite des Osada Kinbaku Dojo e.V. Wir bieten Shibari Workshops und Trainings in Berlin an.
 # baseurl: "" # the subpath of your site, e.g. /blog
 # url: "https://kinbaku-berlin.de" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: anserjan
+instagram_username: kinbakudojo_berlin
+
 highlighter: rouge
 lang: de
 

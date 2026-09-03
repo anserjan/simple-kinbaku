@@ -20,3 +20,5 @@ permalink: /
 
 {% assign ordered_articles = site.articles | where: "category", page.category | sort: "order" %}
 {{ ordered_articles }}
+
+{{ include '_includes/footer.html' }}

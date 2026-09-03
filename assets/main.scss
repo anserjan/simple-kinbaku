@@ -7,6 +7,7 @@ body {
   font-family: "Inter", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;;
   font-weight: 300;
   line-height: 1.6;
+  font-size: 1.1rem;
 }
 
 h1,
@@ -25,11 +26,13 @@ h2, .post-content h2 {
 }
 
 hr {
-  margin-bottom: 22px;
+  margin-bottom: 2em;
 }
+
 .site-nav .page-link:not(:last-child) {
   margin-right: 35px;
 }
+
 .site-header {
   a {
     font-weight: 500;
@@ -106,4 +109,21 @@ hr {
   .item {
     flex: 1 1 25%;
   }
+}
+
+footer {
+  a {
+    color: #222;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all ease .2s;
+  }
+  a:visited {
+    color: #222;
+  }
+  a:hover {
+    color: #6f6f6f;
+    text-decoration: none;
+  }
+  
 }
