@@ -1,0 +1,22 @@
+---
+layout: default
+title: Verein
+category: verein
+permalink: /
+---
+
+<section>
+  <p>Herzlich willkommen auf der Website des Osada Kinbaku Dojo e.V., dem Ort f&uuml;r Shibari-Begeisterte in Berlin!<br />
+    <br />
+    Unser gemeinn&uuml;tziger Verein widmet sich der Vermittlung der japanischen Seilkunst Shibari &ndash; auch bekannt als Kinbaku &ndash; sowie der Schaffung einer Gemeinschaft von Menschen, die sich f&uuml;r die Kunst des Fesseln interessieren. Unser Shibari-Dojo bietet regelm&auml;&szlig;ige Unterrichtseinheiten und Workshops an, die das Erlernen und Verfeinern von Techniken und Fertigkeiten im Umgang mit Seilen erm&ouml;glichen. Dabei legen wir besonderen Wert auf k&ouml;rperliche und seelische Gesundheit sowie auf den Respekt f&uuml;r die Grenzen anderer.<br />
+    <br />
+    Wir unterrichten Shibari in Theorie und Praxis nach unserer Interpretation des klassischen Osada Ryu. Wie in einem Dojo &uuml;blich, lernen unsere Sch&uuml;ler:innen in ihrer jeweiligen Geschwindigkeit, also ohne Zeitdruck, die Inhalte sicher, pr&auml;zise und &auml;sthetisch umzusetzen.<br />
+    <br />
+    Wir laden Euch herzlich ein, unsere Leidenschaft und unser Dojo kennenzulernen und in die faszinierende Welt des Shibari einzutauchen.<br />
+    <br />
+    Schaut Euch um &ndash; wir freuen uns auf Euch!
+  </p>
+</section>
+
+{% assign ordered_articles = site.articles | where: "category", page.category | sort: "order" %}
+{{ ordered_articles }}

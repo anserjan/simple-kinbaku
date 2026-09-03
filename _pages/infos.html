@@ -1,0 +1,8 @@
+---
+layout: page
+title: Infos
+permalink: /infos/
+category: infos
+---
+{% assign ordered_articles = site.articles | where: "category", page.category | sort: "order" %}
+{{ ordered_articles }}
