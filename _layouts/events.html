@@ -1,0 +1,28 @@
+---
+layout: default
+---
+{% assign today = site.time | date: "%Y-%m-%d" %}
+{% assign events = site.events | where_exp: "event", "event.date" >= "today" | sort: "date" %}
+<section class="events">
+  {% for event in events %}
+    <article class="event">
+      <h2>{{event.title}}</h2>
+      <time datetime="{{ event.date | date: site.date_format }}">
+        {% include date-de.html date=event.date %}
+      </time>
+      
+      {% if event.location %}
+        <p>{{ event.location }}</p>
+      {% endif %}
+
+      {% if event.description %}
+        <p>{{ event.description }}</p>
+      {% endif %}
+
+      {% if event.duration %}
+        <p>Dauer: {{event.duration}}</p>
+      {% endif %}
+      Anmelden per <a href="mailto:{{site.email}}">E-Mail</a>({{site.email}})
+    </article>
+  {% endfor %}
+</section>
