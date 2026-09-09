@@ -1,5 +1,6 @@
 ---
 ---
+
 @import "minima";
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
@@ -125,5 +126,49 @@ footer {
     color: #6f6f6f;
     text-decoration: none;
   }
-  
+}
+
+.events {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  .event {
+    border: 1px solid #d6d6d6;
+    flex: 0 0 calc((100% - 48px) / 3);
+    border-radius: 8px;
+  }
+
+  .event-image {
+    aspect-ratio: 1/1;
+    border-radius: 8px 8px 0 0;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .event-details {
+    margin-top: 12px;
+    padding: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .event {
+      flex: 0 0 100%;
+    }
+  }
+
+  .description-full {
+    display: none;
+  }
+
+  .show-more {
+    display: block;
+    margin-top: 8px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #0066cc;
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }

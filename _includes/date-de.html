@@ -28,4 +28,13 @@
   | replace: "December", "Dezember"
 %}
 
-{{ weekday }}, {{ day }}. {{ month }}
+{% case include.format %}
+{% when "month" %}
+{{ month }}
+
+{% when "month-year" %}
+{{ month }} {{ year }}
+
+{% else %}
+{{ weekday }}., {{ day }}. {{ month }}
+{% endcase %}

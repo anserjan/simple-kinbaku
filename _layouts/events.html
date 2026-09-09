@@ -1,28 +1,95 @@
 ---
 layout: default
 ---
-{% assign today = site.time | date: "%Y-%m-%d" %}
-{% assign events = site.events | where_exp: "event", "event.date" >= "today" | sort: "date" %}
+{% assign today = site.time %}
+
+{% assign events = site.events 
+  | where_exp: "event", "event.datetime >= today" 
+  | sort: "datetime"
+%}
+
 <section class="events">
   {% for event in events %}
     <article class="event">
-      <h2>{{event.title}}</h2>
-      <time datetime="{{ event.date | date: site.date_format }}">
-        {% include date-de.html date=event.date %}
-      </time>
+
+      {% if event.title contains "workshop" %}
+        <img class="event-image" src="{{ '/assets/image/training.jpg' | relative_url }}">
+      {% else %}
+        <img class="event-image" src="{{ '/assets/image/hero.jpg' | realtive_url }}">
+      {% endif %}
       
-      {% if event.location %}
-        <p>{{ event.location }}</p>
-      {% endif %}
+      <div class="event-details">
+        <h3 class="event-title">{{ event.title }}</h3>
 
-      {% if event.description %}
-        <p>{{ event.description }}</p>
-      {% endif %}
+        <p>
+          <time class="event-date" datetime="{{ event.datetime | date: site.date_format }}">
+            {% include date-de.html date=event.datetime %}
+          </time>
+        </p>
+        
+        {% if event.location %}
+          <p class="event-location">{{ event.location }}</p>
+        {% endif %}
 
-      {% if event.duration %}
-        <p>Dauer: {{event.duration}}</p>
-      {% endif %}
-      Anmelden per <a href="mailto:{{site.email}}">E-Mail</a>({{site.email}})
+        {% if event.datetime %}
+          <p class="event-time">Ab: {{ event.datetime | date: "%H:%M" }} Uhr
+            {% if event.duration %}
+              <br>Dauer: {{event.duration}}
+            {% endif %}
+            {% if event.price %}
+            <br>Preis: {{ event.price }}
+            {% endif %}
+          </p>
+        {% endif %}
+
+        {% if event.description %}
+          <p class="event-description">
+            <span class="description-short">
+              {% assign words = event.description | split: " " %}
+              {% for word in words limit: 10 %}
+                {{ word }}{% unless forloop.last %} {% endunless %}
+              {% endfor %}
+              {% if words.size > 10 %}...{% endif %}
+            </span>
+
+            <!-- {% if words.size > 10 %}
+              <span class="description-full">
+                {{ event.description }}
+              </span>
+
+              <button class="show-more" type="button">
+                Mehr anzeigen
+              </button>
+            {% endif %} -->
+            </p>
+        {% endif %}
+
+        <div class="call-to-action">
+          <a href="mailto:{{site.email}}?subject=Anmeldung%20fuer%20{{event.title}}%20{{ event.datetime | date: '%d.%m'}}">Anmelden per E-Mail</a> ({{site.email}})
+        </div>
+      </div>
     </article>
   {% endfor %}
 </section>
+
+<script>
+document.querySelectorAll('.show-more').forEach(button => {
+  button.addEventListener('click', () => {
+    const container = button.closest('.event-description');
+    const shortText = container.querySelector('.description-short');
+    const fullText = container.querySelector('.description-full');
+
+    const isExpanded = fullText.style.display === 'inline';
+    
+    if (isExpanded) {
+      fullText.style.display = 'none';
+      shortText.style.display = 'inline';
+      button.textContent = 'Mehr anzeigen';
+    } else {
+      shortText.style.display = 'none';
+      fullText.style.display = 'inline';
+      button.textContent = 'Weniger anzeigen';
+    }
+  });
+});
+</script>
