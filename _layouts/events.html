@@ -52,7 +52,7 @@ layout: default
               {% if words.size > 10 %}...{% endif %}
             </span>
 
-            <!-- {% if words.size > 10 %}
+            {% if words.size > 10 %}
               <span class="description-full">
                 {{ event.description }}
               </span>
@@ -60,7 +60,7 @@ layout: default
               <button class="show-more" type="button">
                 Mehr anzeigen
               </button>
-            {% endif %} -->
+            {% endif %}
             </p>
         {% endif %}
 
@@ -78,17 +78,22 @@ document.querySelectorAll('.show-more').forEach(button => {
     const container = button.closest('.event-description');
     const shortText = container.querySelector('.description-short');
     const fullText = container.querySelector('.description-full');
+    const eventCard = button.closest('.event');
+    const title = eventCard.querySelector('.event-title');
 
     const isExpanded = fullText.style.display === 'inline';
-    
+
     if (isExpanded) {
+      eventCard.classList.remove('open');
       fullText.style.display = 'none';
       shortText.style.display = 'inline';
       button.textContent = 'Mehr anzeigen';
     } else {
+      eventCard.classList.add('open');
       shortText.style.display = 'none';
       fullText.style.display = 'inline';
       button.textContent = 'Weniger anzeigen';
+      title.scrollIntoView(true, { behavior: "smooth" });
     }
   });
 });

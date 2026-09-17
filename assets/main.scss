@@ -34,6 +34,15 @@ hr {
   margin-right: 35px;
 }
 
+@media screen and (max-width: 600px) {
+  .site-nav .page-link {
+      display: block;
+      margin-left: 20px;
+      margin-right: 35px;
+      padding: 5px 10px;
+  }
+}
+
 .site-header {
   a {
     font-weight: 500;
@@ -139,11 +148,20 @@ footer {
     border-radius: 8px;
   }
 
+  .open {
+    animation: 3s linear;
+    flex: 100%;
+  }
+
   .event-image {
     aspect-ratio: 1/1;
     border-radius: 8px 8px 0 0;
     object-fit: cover;
     width: 100%;
+  }
+
+  .event-title {
+    scroll-margin-top: 75px;
   }
 
   .event-details {
